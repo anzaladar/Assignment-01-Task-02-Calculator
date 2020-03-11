@@ -177,19 +177,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 process = tv_equation.getText().toString();
-                int length = process.length() - 1;
-                if (length + 1 > 0) {
-                    char last = process.charAt(length);
-                    if (last == '+' || last == '-' || last == '*' || last == '/' || last == '%') {
-                        process = process.substring(0, length);
+                int length = process.length() ;
+                if (length  > 0) {
+                    int l = length - 1;
+                    char last = process.charAt(l);
+                    if (last == '-' || last == '+' || last == '%') {
+                        process = process.substring(0, l);
                         tv_equation.setText(process);
                     }
-                    tv_equation.setText(process + "-");
-                    lastDot = false;
-                    lastNumeric = true;
-                    count = 0;
-
                 }
+                tv_equation.setText(process + "-");
+                lastDot = false;
+                lastNumeric = true;
+                count = 0;
             }
         });
 
